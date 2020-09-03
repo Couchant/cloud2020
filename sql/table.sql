@@ -1,0 +1,6 @@
+CREATE DATABASE CLOUD2020;
+CREATE TABLE PAYMENT(
+                          ID BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '订单编号',
+                          SERIAL VARCHAR(20) COMMENT '订单序列号',
+                          PRIMARY KEY (ID)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
