@@ -41,7 +41,6 @@ public class PaymentController {
     @GetMapping("queryPayment")
     public CommonResult<PaymentBean> queryPayment(Long id){
         log.info(id.toString());
-        log.info("devtools test");
         try {
             PaymentBean paymentBean = service.queryPayment(id);
             return paymentBean ==null || StringUtils.isEmpty(paymentBean.getId()) ? new CommonResult<PaymentBean>("1001","没有该笔订单") : new CommonResult<PaymentBean>("0000","success",paymentBean);
