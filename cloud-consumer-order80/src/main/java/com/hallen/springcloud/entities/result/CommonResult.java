@@ -1,5 +1,6 @@
 package com.hallen.springcloud.entities.result;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude
 public class CommonResult<T> {
     /**
      * 返回码 200-成功

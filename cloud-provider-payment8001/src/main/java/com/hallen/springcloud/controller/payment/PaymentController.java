@@ -6,10 +6,7 @@ import com.hallen.springcloud.service.payment.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName: PaymentController
@@ -26,12 +23,12 @@ public class PaymentController {
     PaymentService service;
 
     @PostMapping("insert")
-    public CommonResult insert(PaymentBean paymentBean){
+    public CommonResult insert(@RequestBody PaymentBean paymentBean){
         log.info(paymentBean.toString());
         log.debug(paymentBean.toString());
         try {
             Integer result = service.insert(paymentBean);
-            return result == 0 ? new CommonResult("1001","业务处理失败") : new CommonResult("0000","success");
+            return result == 0 ? new CommonResult("1001","业务处理失败") : new CommonResult("0000","success",result);
         }catch (Exception e){
             log.error("插入订单流水失败："+paymentBean.toString());
             return new CommonResult("9999","系统异常");
@@ -39,7 +36,7 @@ public class PaymentController {
     }
 
     @GetMapping("queryPayment")
-    public CommonResult<PaymentBean> queryPayment(Long id){
+    public CommonResult<PaymentBean> queryPayment(@RequestParam("id") Long id){
         log.info(id.toString());
         try {
             PaymentBean paymentBean = service.queryPayment(id);

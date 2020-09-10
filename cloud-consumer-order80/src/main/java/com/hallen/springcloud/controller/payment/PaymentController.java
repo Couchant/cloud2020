@@ -35,6 +35,17 @@ public class PaymentController {
         }
     }
 
+    @GetMapping("createPayment")
+    public CommonResult<Integer> createOrder(@RequestParam("serial") String serial){
+        try{
+            Integer result = service.createOrder(serial);
+            return result == 0 ? new CommonResult<>("1001","创建订单失败") : new CommonResult<>("0000","交易成功",result);
+        }catch (Exception e){
+            log.error("创建订单异常："+e);
+            return new CommonResult<>("9999","系统异常");
+        }
+
+    }
 
 
 }

@@ -40,4 +40,17 @@ public class PaymentServiceImpl implements PaymentService {
         }
         return null;
     }
+
+    @Override
+    public Integer createOrder(String serial) {
+        PaymentBean paymentBean = new PaymentBean();
+        paymentBean.setSerial(serial);
+        CommonResult<Integer> result = restTemplate.postForObject(PAYMENT_URL+"/payment/insert",paymentBean,CommonResult.class);
+        log.debug("本次rest请求返回结果为："+ JSON.toJSON(result));
+        if (result!=null&&result.getCode().equals("0000")){
+            log.debug("data:"+result.getData());
+            return result.getData();
+        }
+        return 0;
+    }
 }

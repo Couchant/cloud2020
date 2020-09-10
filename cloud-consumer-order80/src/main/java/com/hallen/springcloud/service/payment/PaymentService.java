@@ -11,4 +11,6 @@ import com.hallen.springcloud.entities.payment.PaymentBean;
  */
 public interface PaymentService {
     PaymentBean getOrder(String id);
+
+    Integer createOrder(String serial);
 }
