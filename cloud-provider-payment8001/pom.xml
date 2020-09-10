@@ -12,6 +12,11 @@
     <artifactId>cloud-provider-payment8001</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.hallen.springcloud</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!--springboot web模块支持，引入web模块开发需要的相关jar包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
