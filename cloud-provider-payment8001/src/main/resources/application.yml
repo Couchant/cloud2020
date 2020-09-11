@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-pament-service
+    name: cloud-payment-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,3 +15,12 @@ spring:
 mybatis:
   mapper-locations: classpath:mappings/*/*.xml
   type-aliases-package: com.hallen.springcloud.entities
+
+#eureka配置
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+#      集群后面加就行
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
