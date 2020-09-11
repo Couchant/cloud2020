@@ -23,7 +23,11 @@ import javax.annotation.Resource;
 @Slf4j
 public class PaymentServiceImpl implements PaymentService {
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+//    public static final String PAYMENT_URL = "http://localhost:8001";
+    /**
+     * 改为使用服务名访问
+     */
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Autowired
     RestService restService;
