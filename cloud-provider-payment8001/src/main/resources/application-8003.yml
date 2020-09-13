@@ -1,0 +1,30 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud2020?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+#    consul配置
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mappings/*/*.xml
+  type-aliases-package: com.hallen.springcloud.entities
+
+
+logging:
+  level:
+    com.hallen.springcloud: debug

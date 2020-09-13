@@ -3,7 +3,6 @@ package com.hallen.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @ClassName: Payment8001Application
@@ -12,8 +11,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @Date: 2020/9/2 17:29
  * @Version: 1.0
  */
-@SpringBootApplication
-@EnableEurekaClient
+@SpringBootApplication()
+//@EnableEurekaClient//使用Consul时排除Eureka的东东
 @EnableDiscoveryClient
 public class Payment8001Application {
     public static void main(String[] args) {
