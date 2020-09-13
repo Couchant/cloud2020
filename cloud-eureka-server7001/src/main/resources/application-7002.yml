@@ -1,19 +1,24 @@
 server:
-  port: 7001
+  port: 7002
 
 #eureka配置
 eureka:
   instance:
 #    eureka服务端的实例名称
-    hostname: eureka7001.com
+    hostname: eureka7002.com
   client:
 #    是否向 Eureka 注册服务。该应用为服务注册中心，不需要自注册，设置为 false
     register-with-eureka: false
 #    是否检索服务。该应用为服务注册中心，职责为注册和发现服务，无需检索服务，设置为 false
     fetch-registry: false
     service-url:
-      defaultZone: http://eureka7002.com:7002/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
+  server:
+#    关闭自我保护机制,false
+    enable-self-preservation: false
+#    清理无效节点的时间间隔，默认60000毫秒，即60秒
+    eviction-interval-timer-in-ms: 5000
 
 spring:
   application:
-    name: eureka-server-7001
+    name: eureka-server
