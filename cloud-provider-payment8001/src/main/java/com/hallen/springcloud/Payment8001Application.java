@@ -12,7 +12,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Version: 1.0
  */
 @SpringBootApplication()
-//@EnableEurekaClient//使用Consul时排除Eureka的东东
 @EnableDiscoveryClient
 public class Payment8001Application {
     public static void main(String[] args) {
